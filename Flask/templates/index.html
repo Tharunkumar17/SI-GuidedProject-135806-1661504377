@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chronic Kidney Disease Model</title>
+
+</head>
+
+<body>
+    
+    <div style="color:black;" class="container">
+        <h2 class='container-heading'><span class="heading_font">Chronic Kidney Disease Prediction</span></h2>
+    </div>
+
+    <div style="color:black;" class="ml-container">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <br>
+            <br>
+
+            <h3>Blood_pressure</h3>
+            <input id="first" name="Blood_pressure" placeholder="Ex: (80, 76.46, 90)mm/hg" required="required">
+            <br>
+
+            <h3>Specific Gravity</h3>
+            <input id="second" name="Specafic_gravity" placeholder="Ex: (1.005,1.010,1.015,1.020,1.025)" required="required">
+            <br>
+
+            <h3>Albumin</h3>
+            <input id="third" name="albumin" placeholder="(0,1,2,3,4,5)" required="required">
+            <br>
+
+            <h3>Red Blood Cells</h3>
+            <input id="fourth" name="red_blood_cells" placeholder="Normal = 0, Abnormal = 1" required="required">
+            <br>
+
+            <h3>Pus Cell</h3>
+            <input id="fifth" name="pus_cell" placeholder="Normal = 0, Abnormal = 1" required="required">
+            <br>
+
+            <h3>Pus Cell clumps</h3>
+            <input id="sixth" name="pus_cell_clumps" placeholder="Normal = 0, Abnormal = 1" required="required">
+            <br>
+
+            <h3>Random Blood Glucose</h3>
+            <input id="seventh" name="blood_glucose_random" placeholder="Ex: (121.0, 148.036,70,100)mgs/dl" required="required">
+            <br>
+
+            <h3>Blood Urea</h3>
+            <input id="eight" name="blood_urea" placeholder="(36.0, 18.0, 60,107)mgs/dl" required="required">
+            <br>
+
+            <h3>Serum Creatinine</h3>
+            <input id="ninth" name="serum_creatinine" placeholder="(1.2, 0.8, 7.2)mgs/dl" required="required">
+            <br>
+
+            <h3>Sodium</h3>
+            <input id="tenth" name="sodium" placeholder="(137.5287, 111, 142)mEq/L" required="required">
+            <br>
+
+            <h3>Hemoglobin</h3>
+            <input id="eleven" name="hemoglobin" placeholder="(15.4, 11.3, 9.5)gms" required="required">
+            <br>
+
+            <h3>Packed Cell Volume</h3>
+            <input id="twelve" name="packed_cell_volume" placeholder="(44, 31, 29)" required="required">
+            <br>
+
+            <h3>Red Blood Cell Count</h3>
+            <input id="thirteen" name="red_blood_cell_count" placeholder="(5.20,3.70)millions/cmm" required="required">
+            <br>
+
+            <h3>Hypertension</h3>
+            <input id="fourteen" name="hypertension" placeholder="Yes = 1, No=0" required="required">
+            <br>
+
+            <h3>Diabetes mellitus</h3>
+            <input id="fifteen" name="diabetesmellitus" placeholder="Yes = 1, No=0" required="required">
+            <br>
+
+            <h3>Coronary Artery Disease</h3>
+            <input id="sixteen" name="coronary_artery_disease" placeholder="Yes = 1, No=0" required="required">
+            <br>
+
+            <h3>Appetite</h3>
+            <input id="seventeen" name="appetite" placeholder="Good = 1, Poor = 0" required="required">
+            <br>
+
+            <h3>Pedal Edema</h3>
+            <input id="eighteen" name="pedal_edema" placeholder="Yes = 1, No=0" required="required">
+            <br>
+
+            <br>
+            <br>
+            <button id="sub" type="submit ">Submit</button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3 class='footer-description'>by @Tharun kumar</h3>
+
+        </form>
+    </div>
+<style>
+    /*back img*/
+    body
+      {
+          
+        
+        
+       background-image: url("https://img.etimg.com/thumb/msid-88254826,width-650,imgsize-16018,,resizemode-4,quality-100/kidney-agencies.jpg");
+        height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: 100% 100%;
+
+}
+    body{
+	font-family: Arial, Helvetica,sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+    .heading_font{
+    color: red;
+	font-family: 'Pacifico', cursive;
+	font-size: 50px;
+	font-weight: normal;
+}
+    #first {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #second {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #third {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #fourth {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #fifth {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #sixth {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #seventh {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #eight {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #ninth {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #tenth {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #eleven {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #twelve {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #thirteen {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #thirteen {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #fourteen {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #fifteen {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #sixteen {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #seventeen {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #eighteen {
+        border-radius: 14px;
+        height: 30px;
+        width: 300px;
+        font-size: 18px;
+        text-align: center;
+        color: blue;
+        background-color: pink;
+        
+    }
+    #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+            background-color: lightgreen;
+        }
+</style>
+</body>
+</html>
